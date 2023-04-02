@@ -1,7 +1,7 @@
 package Simulador.saneparprojeto;
-
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,6 +21,9 @@ public class Telahome extends AppCompatActivity {
 
     Button Calcular;
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +34,10 @@ public class Telahome extends AppCompatActivity {
         resultado2 = findViewById(R.id.resultadofinal);
         Calcular = findViewById(R.id.Calcular);
 
+        if (savedInstanceState != null) {
+            consumosimulado.setText(savedInstanceState.getString("comsumom3"));
+            resultado2.setText(savedInstanceState.getString("resultado2"));
+        }
 
 
         Calcular.setOnClickListener(new View.OnClickListener() {
@@ -62,32 +69,68 @@ public class Telahome extends AppCompatActivity {
                 double consumo = n3;
 
 
-                consumosimulado.setText(String.valueOf(consumo));
+                consumosimulado.setText(String.valueOf("o seu consumo foi: " + consumo+"m3"+"\n"+"1m³ equivale a uma caixa d'água de mil litros"));
+
+
 
                 if (consumo <= 5) {
                     preco = taxamin + esgoto1 * intervcons;
                     resultado2.setText(String.valueOf("O preço do consumo é: R$" + preco));
 
+                    Intent intent = new Intent(Telahome.this, Resultadocalc.class);
+                    intent.putExtra("resultadofinal", preco);
+                    intent.putExtra("consumido",consumo);
+
+                    startActivity(intent);
+
                 } else if (consumo <= 10) {
                     preco = taxamin + (consumo - intervcons) * taxa1 + esgoto1 * intervcons + (consumo - intervcons) * esgoto2;
                     resultado2.setText(String.valueOf("O preço do consumo é: R$" + preco));
+                    Intent intent = new Intent(Telahome.this, Resultadocalc.class);
+                    intent.putExtra("resultadofinal", preco);
+                    intent.putExtra("consumido",consumo);
+
+                    startActivity(intent);
 
                 } else if (consumo <= 15) {
                     preco = taxamin + intervcons * taxa1 + (consumo - 10) * taxa2 + esgoto1 * intervcons + esgoto2 * intervcons + (consumo - 10) * esgoto3;
                     resultado2.setText(String.valueOf("O preço do consumo é: R$" + preco));
+                    Intent intent = new Intent(Telahome.this, Resultadocalc.class);
+                    intent.putExtra("resultadofinal", preco);
+                    intent.putExtra("consumido",consumo);
+
+                    startActivity(intent);
 
                 } else if (consumo <= 20) {
                     preco = taxamin + intervcons * taxa1 + intervcons * taxa2 + (consumo - 15) * taxa3 + esgoto1 * intervcons + esgoto2 * intervcons + esgoto3 * intervcons + (consumo - 15) * esgoto4;
                     resultado2.setText(String.valueOf("O preço do consumo é: R$" + preco));
+                    Intent intent = new Intent(Telahome.this, Resultadocalc.class);
+                    intent.putExtra("resultadofinal", preco);
+                    intent.putExtra("consumido",consumo);
+
+                    startActivity(intent);
 
                 } else if (consumo <= 30) {
                     preco = taxamin + intervcons * taxa1 + intervcons * taxa2 + intervcons * taxa3 + (consumo - 20) * taxa4 + esgoto1 * intervcons + esgoto2 * intervcons + esgoto3 * intervcons + esgoto4 * intervcons + (consumo - 20) * esgoto5;
                     resultado2.setText(String.valueOf("O preço do consumo é: R$" + preco));
+                    Intent intent = new Intent(Telahome.this, Resultadocalc.class);
+                    intent.putExtra("resultadofinal", preco);
+                    intent.putExtra("consumido",consumo);
+
+                    startActivity(intent);
 
                 } else if (consumo > 30) {
                     preco = taxamin + intervcons * taxa1 + intervcons * taxa2 + intervcons * taxa3 + intervconsa30 * taxa4 + (consumo - 30) * taxa5 + esgoto1 * intervcons + esgoto2 * intervcons + esgoto3 * intervcons + esgoto4 * intervcons + esgoto5 * intervconsa30 + (consumo - 30) * esgoto6;
                     resultado2.setText(String.valueOf("O preço do consumo é: R$" + preco));
+                    Intent intent = new Intent(Telahome.this, Resultadocalc.class);
+                    intent.putExtra("resultadofinal", preco);
+                    intent.putExtra("consumido",consumo);
+
+                    startActivity(intent);
+
                 }
+
+
             }
 
 
