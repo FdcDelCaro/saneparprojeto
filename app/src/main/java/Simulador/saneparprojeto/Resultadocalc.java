@@ -2,19 +2,28 @@ package Simulador.saneparprojeto;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
+
 import android.os.Bundle;
 
 
-import androidx.appcompat.app.AppCompatActivity;
+
+
 
 import android.content.Intent;
-import android.os.Bundle;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 public class Resultadocalc extends AppCompatActivity {
     Button voltarpage;
+
+
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,13 +44,18 @@ public class Resultadocalc extends AppCompatActivity {
         TextView Resultado2 = findViewById(R.id.resultadoconsumido);
         Resultado2.setText("Você consumiu: " + resultadocons+"m3" +"\n1 metro cubico equivale a 500 garrafas pets de 2 litro.");
 
-        voltarpage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent in = new Intent(Resultadocalc.this, Telahome.class);
-                startActivity(in);
-            }
-        });
 
-    }
+
+
+
+        voltarpage.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent in = new Intent(Resultadocalc.this, Telahome.class);
+            startActivity(in);
+        }
+    });
+
 }
+}
+
