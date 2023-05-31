@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class AcessoBD extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "fatura.db";
+    private static final String DATABASE_NAME = "sanepar.db";
 
 
     public AcessoBD(Context context) {

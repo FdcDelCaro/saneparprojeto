@@ -19,12 +19,6 @@ import android.widget.TextView;
 public class Resultadocalc extends AppCompatActivity {
     Button voltarpage;
 
-
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,9 +37,6 @@ public class Resultadocalc extends AppCompatActivity {
 
         TextView Resultado2 = findViewById(R.id.resultadoconsumido);
         Resultado2.setText("Você consumiu: " + resultadocons+"m3" +"\n1 metro cubico equivale a 500 garrafas pets de 2 litro.");
-
-
-
 
 
         voltarpage.setOnClickListener(new View.OnClickListener() {

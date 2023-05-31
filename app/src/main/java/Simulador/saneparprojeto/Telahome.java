@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class Telahome extends AppCompatActivity {
@@ -17,7 +18,7 @@ public class Telahome extends AppCompatActivity {
     EditText leitura_anterior;
     TextView consumosimulado;
     TextView resultado2;
-    TextView teste;
+    ListView teste;
     Button Calcular;
     AcessoBD acessoBD;
 
@@ -37,7 +38,7 @@ public class Telahome extends AppCompatActivity {
         SQLiteDatabase db = acessoBD.getReadableDatabase();
         SQLiteDatabase db2 = acessoBD.getReadableDatabase();
         String query = "SELECT leituraatualizada FROM leituras ORDER BY id DESC LIMIT 1";
-        String query2 = "SELECT listaconsumo FROM consumo";
+        String query2 = "SELECT * FROM consumo";
         Cursor cursor = db.rawQuery(query, null);
         Cursor cursor2 = db2.rawQuery(query2, null);
         if (cursor != null && cursor.moveToFirst()) {
@@ -45,9 +46,9 @@ public class Telahome extends AppCompatActivity {
             leitura_anterior.setText(leituraAnterior);
         }
 
-        if (cursor2 != null && cursor2.moveToFirst()) {
+        if (cursor2 != null && cursor2.moveToNext()) {
             String consumido = cursor2.getString(cursor2.getColumnIndex("listaconsumo"));
-            teste.setText(consumido);
+            teste.setAdapter(consumido);
         }
 
 
@@ -80,6 +81,7 @@ public class Telahome extends AppCompatActivity {
                 double esgoto6 = 11.36; // acima de 30m³, cada taxa de esgoto por metro cúbico
                 double preco;
                 double num1 = Double.parseDouble(n1);
+                System.out.println("n1:"+n1+"-n2:"+n2);
                 double num2 = Double.parseDouble(n2);
                 double n3 = num1 - num2;
                 double consumo = n3;
@@ -100,7 +102,7 @@ public class Telahome extends AppCompatActivity {
                db2.close();
 
                 // Atualizar campo de leitura anterior com o valor salvo no banco de dados
-                leitura_anterior.setText(n1);
+                //leitura_anterior.setText(n1);
 
                 if (consumo <= 5) {
                     preco = taxamin + esgoto1 * intervcons;
