@@ -1,15 +1,11 @@
 package Simulador.saneparprojeto;
 
 import androidx.appcompat.app.AppCompatActivity;
-import android.content.ContentValues;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
 
 public class Telahome extends AppCompatActivity {
@@ -18,8 +14,8 @@ public class Telahome extends AppCompatActivity {
     EditText leitura_anterior;
     TextView consumosimulado;
     TextView resultado2;
-    ListView teste;
     Button Calcular;
+    TextView teste2;
     AcessoBD acessoBD;
 
     @Override
@@ -32,31 +28,12 @@ public class Telahome extends AppCompatActivity {
         consumosimulado = findViewById(R.id.resultconsum);
         resultado2 = findViewById(R.id.resultadofinal);
         Calcular = findViewById(R.id.Calcular);
-        teste = findViewById(R.id.teste);
+        teste2 = findViewById(R.id.teste2);
 
-        AcessoBD acessoBD = new AcessoBD(this);
-        SQLiteDatabase db = acessoBD.getReadableDatabase();
-        SQLiteDatabase db2 = acessoBD.getReadableDatabase();
-        String query = "SELECT leituraatualizada FROM leituras ORDER BY id DESC LIMIT 1";
-        String query2 = "SELECT * FROM consumo";
-        Cursor cursor = db.rawQuery(query, null);
-        Cursor cursor2 = db2.rawQuery(query2, null);
-        if (cursor != null && cursor.moveToFirst()) {
-            String leituraAnterior = cursor.getString(cursor.getColumnIndex("leituraatualizada"));
-            leitura_anterior.setText(leituraAnterior);
-        }
+        acessoBD = new AcessoBD(this);
 
-        if (cursor2 != null && cursor2.moveToNext()) {
-            String consumido = cursor2.getString(cursor2.getColumnIndex("listaconsumo"));
-            teste.setAdapter(consumido);
-        }
-
-
-
-
-
-
-
+        String leituraAnterior = acessoBD.getUltimaLeitura();
+        leitura_anterior.setText(leituraAnterior);
 
 
 
@@ -81,28 +58,14 @@ public class Telahome extends AppCompatActivity {
                 double esgoto6 = 11.36; // acima de 30m³, cada taxa de esgoto por metro cúbico
                 double preco;
                 double num1 = Double.parseDouble(n1);
-                System.out.println("n1:"+n1+"-n2:"+n2);
                 double num2 = Double.parseDouble(n2);
                 double n3 = num1 - num2;
                 double consumo = n3;
 
                 consumosimulado.setText(String.valueOf("O seu consumo foi: " + consumo + "m³" + "\n" + "1m³ equivale a uma caixa d'água de mil litros"));
 
-                // Salvar leitura atual no banco de dados
-                SQLiteDatabase db = acessoBD.getWritableDatabase();
-                ContentValues values = new ContentValues();
-                values.put("leituraatualizada", n1);
-                db.insert("leituras", null, values);
-                db.close();
-
-               SQLiteDatabase db2 = acessoBD.getWritableDatabase();
-               ContentValues values1 = new ContentValues();
-               values1.put("listaconsumo",consumo);
-               db2.insert("consumo",null,values1);
-               db2.close();
-
-                // Atualizar campo de leitura anterior com o valor salvo no banco de dados
-                //leitura_anterior.setText(n1);
+                acessoBD.salvarLeituraAtual(n1);
+                acessoBD.salvarConsumo(String.valueOf(consumo));
 
                 if (consumo <= 5) {
                     preco = taxamin + esgoto1 * intervcons;
@@ -112,7 +75,7 @@ public class Telahome extends AppCompatActivity {
                     intent.putExtra("resultadofinal", preco);
                     intent.putExtra("consumido", consumo);
 
-                    //startActivity(intent);
+                    startActivity(intent);
                 } else if (consumo <= 10) {
                     preco = taxamin + (consumo - intervcons) * taxa1 + esgoto1 * intervcons + (consumo - intervcons) * esgoto2;
                     resultado2.setText(String.valueOf("O preço do consumo é: R$" + preco));

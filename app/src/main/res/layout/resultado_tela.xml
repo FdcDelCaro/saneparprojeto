@@ -16,7 +16,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.264" />
+        app:layout_constraintVertical_bias="0.161" />
 
     <TextView
         android:id="@+id/resultadoconsumido"
@@ -28,18 +28,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.334" />
-
-    <TextView
-        android:id="@+id/historic"
-        android:layout_width="371dp"
-        android:layout_height="295dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.63" />
+        app:layout_constraintVertical_bias="0.241" />
 
     <Button
         android:id="@+id/voltar"
@@ -51,5 +40,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resultado"
         app:layout_constraintVertical_bias="0.865" />
+
+    <ListView
+        android:id="@+id/consumolist"
+        android:layout_width="380dp"
+        android:layout_height="328dp"
+        app:layout_constraintBottom_toTopOf="@+id/voltar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultadoconsumido"
+        app:layout_constraintVertical_bias="0.617" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
