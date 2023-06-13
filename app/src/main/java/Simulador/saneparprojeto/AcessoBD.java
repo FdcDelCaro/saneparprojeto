@@ -28,13 +28,7 @@ public class AcessoBD extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        String excluirTabelaLeituras = "DROP TABLE IF EXISTS leituras";
-        String excluirTabelaConsumo = "DROP TABLE IF EXISTS consumo";
 
-        db.execSQL(excluirTabelaLeituras);
-        db.execSQL(excluirTabelaConsumo);
-
-        onCreate(db);
     }
 
     public String getUltimaLeitura() {
