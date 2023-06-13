@@ -18,6 +18,8 @@ public class Telahome extends AppCompatActivity {
     TextView teste2;
     AcessoBD acessoBD;
 
+    Button Listaconsumo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,11 +31,20 @@ public class Telahome extends AppCompatActivity {
         resultado2 = findViewById(R.id.resultadofinal);
         Calcular = findViewById(R.id.Calcular);
         teste2 = findViewById(R.id.teste2);
+        Listaconsumo = findViewById(R.id.listaconsumo);
 
         acessoBD = new AcessoBD(this);
 
         String leituraAnterior = acessoBD.getUltimaLeitura();
         leitura_anterior.setText(leituraAnterior);
+
+        Listaconsumo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(Telahome.this, Lista.class);
+                startActivity(in);
+            }
+        });
 
 
 

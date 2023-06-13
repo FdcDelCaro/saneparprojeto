@@ -50,11 +50,13 @@ public class Resultadocalc extends AppCompatActivity {
         //exibir o resultado em um textview
 
         TextView Resultado = findViewById(R.id.resultado);
-        Resultado.setText("O valor de sua fatura: " + resultado);
+        String valordecimal=String.format("o valor de sua fatura foi R$ %.2f",resultado);
+        Resultado.setText(valordecimal);
 
         TextView Resultado2 = findViewById(R.id.resultadoconsumido);
-        Resultado2.setText("Você consumiu: " + resultadocons + "m3" + "\n1 metro cubico equivale a 500 garrafas pets de 2 litro.\n" +
-                "abaixo a sua lista de consumo em m3");
+        double garrafas = resultadocons * 1000/500;
+        String valordecimal2=String.format("Você consumiu %.2f m3 \n\nVocê consumiu o equivalente a %.1f caixas d'agua de 500L",resultadocons,garrafas);
+        Resultado2.setText(valordecimal2);
 
 
         voltarpage.setOnClickListener(new View.OnClickListener() {
