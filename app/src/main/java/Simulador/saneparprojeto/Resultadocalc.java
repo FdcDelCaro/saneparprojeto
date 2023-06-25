@@ -33,29 +33,35 @@ public class Resultadocalc extends AppCompatActivity {
         voltarpage = findViewById(R.id.voltar);
         listaconsumo = findViewById(R.id.consumolist);
 
+        // Instanciação do objeto AcessoBD para acessar o banco de dados
         acessoBD = new AcessoBD(Resultadocalc.this);
 
+        // cria arrayAdapter para exibir a lista de consumo
         listaconsumovetor = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
-        listaconsumo.setAdapter(listaconsumovetor);
+        listaconsumo.setAdapter(listaconsumovetor);// meu list view para mostra os dados do arrayadapter na tela
 
-        List<String> listaConsumo = acessoBD.listaconsumido();
+        //  lista de consumo vindo do banco de dados
+        List<String> listaConsumo = acessoBD.listaconsumido();// funcao da classe acessobd que ira retorna um valor
+        //para adicioanr no array
 
+        // lista de consumo no ArrayAdapter
         listaconsumovetor.addAll(listaConsumo);
+        //o addAll, esta adicionando todos os dados recebido na string listaConsumo pela funcao da classe Acessobd.java.
 
 
-        // recuperando o resultado da intent da pagina principal calculator
+        // recuperando o resultado da intent da pagina principal TELAHOME
 
         double resultado = getIntent().getDoubleExtra("resultadofinal", 0);
         double resultadocons = getIntent().getDoubleExtra("consumido", 0);
         //exibir o resultado em um textview
 
         TextView Resultado = findViewById(R.id.resultado);
-        String valordecimal=String.format("o valor de sua fatura foi R$ %.2f",resultado);
+        String valordecimal = String.format("o valor de sua fatura foi R$ %.2f", resultado);
         Resultado.setText(valordecimal);
 
         TextView Resultado2 = findViewById(R.id.resultadoconsumido);
-        double garrafas = resultadocons * 1000/500;
-        String valordecimal2=String.format("Você consumiu %.2f m3 \n\nVocê consumiu o equivalente a %.1f caixas d'agua de 500L",resultadocons,garrafas);
+        double garrafas = resultadocons * 1000 / 500;
+        String valordecimal2 = String.format("Você consumiu %.2f m3 \n\nVocê consumiu o equivalente a %.1f caixas d'agua de 500L", resultadocons, garrafas);
         Resultado2.setText(valordecimal2);
 
 
@@ -67,8 +73,7 @@ public class Resultadocalc extends AppCompatActivity {
             }
         });
     }
-
-
-
 }
+
+
 

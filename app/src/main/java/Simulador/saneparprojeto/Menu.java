@@ -19,6 +19,7 @@ public class Menu extends AppCompatActivity {
         lista=findViewById(R.id.list);
 
         leitura.setOnClickListener(new View.OnClickListener() {
+            //botao que do menu que ira enviar desta tela para a telahome, que é minha tela de calculo
             @Override
             public void onClick(View view) {
                 Intent in = new Intent(Menu.this, Telahome.class);
@@ -27,6 +28,7 @@ public class Menu extends AppCompatActivity {
         });
 
         lista.setOnClickListener(new View.OnClickListener() {
+            //Botao que envia para minha lista de consumo, que esta na classe LISTA.JAVA
             @Override
             public void onClick(View view) {
                 Intent in = new Intent(Menu.this, Lista.class);

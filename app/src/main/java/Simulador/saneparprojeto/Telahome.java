@@ -75,8 +75,15 @@ public class Telahome extends AppCompatActivity {
 
                 consumosimulado.setText(String.valueOf("O seu consumo foi: " + consumo + "m³" + "\n" + "1m³ equivale a uma caixa d'água de mil litros"));
 
-                acessoBD.salvarLeituraAtual(n1);
-                acessoBD.salvarConsumo(String.valueOf(consumo));
+                acessoBD.salvarLeituraAtual(n1); // abaixo comentario
+                // manda o valor para a funcao na classe Acessobd.java
+                // que fara as tratativas de adicionar no bd
+
+                acessoBD.salvarConsumo(String.valueOf(consumo));// abaixo comentario
+                // manda o valor para a funcao na classe Acessobd.java
+                // que fara as tratativas de adicionar no bd
+
+
 
                 if (consumo <= 5) {
                     preco = taxamin + esgoto1 * intervcons;
