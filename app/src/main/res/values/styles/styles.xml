@@ -1,0 +1,15 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+   
+<style name="BlueButton" parent="Widget.AppCompat.Button">
+    <item name="android:background">@drawable/rounded_button</item>
+    <item name="android:textColor">#000000</item> <!-- Cor preta -->
+</style>
+
+    </style>
+
+    <style name="BlueButton" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/button_background</item>
+        <item name="android:textColor">#000000</item> <!-- Cor preta -->
+    </style>
+</resources>

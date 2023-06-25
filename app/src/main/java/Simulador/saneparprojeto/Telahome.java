@@ -30,7 +30,7 @@ public class Telahome extends AppCompatActivity {
         consumosimulado = findViewById(R.id.resultconsum);
         resultado2 = findViewById(R.id.resultadofinal);
         Calcular = findViewById(R.id.Calcular);
-        teste2 = findViewById(R.id.teste2);
+
         Listaconsumo = findViewById(R.id.listaconsumo);
 
         acessoBD = new AcessoBD(this);

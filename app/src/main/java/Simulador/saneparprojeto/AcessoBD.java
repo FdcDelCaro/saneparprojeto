@@ -52,11 +52,11 @@ public class AcessoBD extends SQLiteOpenHelper {
         db.close();
     }
 
-    public List<String> getUltimoConsumo() {
+    public List<String> listaconsumido() {
         String metros = "m3";
         List<String> listaConsumo = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
-        String query = "SELECT listaconsumo FROM consumo";
+        String query = "SELECT id, listaconsumo FROM consumo ORDER BY id DESC;";
         Cursor cursor = db.rawQuery(query, null);
         if (cursor != null) {
             while (cursor.moveToNext()) {

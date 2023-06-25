@@ -2,36 +2,44 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/teste"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/agua5"
     tools:context=".Telahome">
 
     <TextView
         android:id="@+id/leitura11"
+        style="@style/BlueButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Leitura atual:"
 
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/baseline_water_drop_24"
+        android:text="Leitura atual:"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.471"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.15" />
 
     <TextView
         android:id="@+id/leitura21"
+
+        style="@style/BlueButton"
         android:layout_width="wrap_content"
+
         android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/baseline_water_drop_24"
         android:text="Leitura Anterior:"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.426" />
+        app:layout_constraintVertical_bias="0.366" />
 
     <TextView
         android:id="@+id/resultconsum"
@@ -43,7 +51,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.631" />
+        app:layout_constraintVertical_bias="0.589" />
 
     <TextView
         android:id="@+id/resultadofinal"
@@ -55,42 +63,47 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.784" />
+        app:layout_constraintVertical_bias="0.775" />
 
     <EditText
         android:id="@+id/leitura1"
+        style="@style/transparencia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="text"
+        android:inputType="numberDecimal"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.193" />
+        app:layout_constraintVertical_bias="0.25" />
 
     <EditText
         android:id="@+id/leitura2"
+        style="@style/transparencia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="text"
+        android:inputType="numberDecimal"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.485" />
+        app:layout_constraintVertical_bias="0.462" />
 
     <Button
         android:id="@+id/Calcular"
+        style="@style/BlueButton"
+        android:drawableLeft="@drawable/baseline_water_drop_24"
+        android:textSize="18sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Converter"
-        android:textSize="20sp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.54"
@@ -100,10 +113,13 @@
 
     <Button
         android:id="@+id/listaconsumo"
+        style="@style/BlueButton"
+        android:drawableLeft="@drawable/baseline_water_drop_24"
+        android:textSize="18sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Lista de consumo"
-        android:textSize="20sp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.54"
@@ -113,17 +129,9 @@
 
     <ListView
         android:id="@+id/teste"
-        android:layout_width="273dp"
-        android:layout_height="102dp"
-        tools:layout_editor_absoluteX="69dp"
-        tools:layout_editor_absoluteY="198dp" />
-
-    <TextView
-        android:id="@+id/teste2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="29dp"
-        tools:layout_editor_absoluteY="25dp" />
+        android:layout_width="171dp"
+        android:layout_height="42dp"
+        tools:layout_editor_absoluteX="120dp"
+        tools:layout_editor_absoluteY="474dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

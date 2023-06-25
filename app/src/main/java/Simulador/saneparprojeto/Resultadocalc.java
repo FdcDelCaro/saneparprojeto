@@ -38,7 +38,7 @@ public class Resultadocalc extends AppCompatActivity {
         listaconsumovetor = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
         listaconsumo.setAdapter(listaconsumovetor);
 
-        List<String> listaConsumo = acessoBD.getUltimoConsumo();
+        List<String> listaConsumo = acessoBD.listaconsumido();
 
         listaconsumovetor.addAll(listaConsumo);
 
