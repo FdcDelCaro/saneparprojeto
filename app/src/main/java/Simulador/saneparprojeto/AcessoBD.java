@@ -6,17 +6,18 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import androidx.annotation.Nullable;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class AcessoBD extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "sanepar2.db";
+    private static final String NOMEBANCO = "sanepar2.db";
 
-    public AcessoBD(Context context) {
-        super(context, DATABASE_NAME, null, 1);
-    }
-
+    public AcessoBD(@Nullable Context context) {super(context, NOMEBANCO, null, 1);}
+    //É chamado na primeira vez que o banco de Dados(BD) é acessado.
+    //Usado também para a criação do banco de dados
     @Override
     public void onCreate(SQLiteDatabase db) {
         // Criação da tabela leituras
@@ -29,23 +30,11 @@ public class AcessoBD extends SQLiteOpenHelper {
         db.execSQL(criarTabelaConsumo);
     }
 
+    //Atualiza a versão do BD.
+    //Permite que usuários antigos e novos usem a aplicação mesmo com o BD sofrendo manutenção
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-    }
-
-    public String getUltimaLeitura() {
-        String leituraAnterior = "";
-        SQLiteDatabase db = getReadableDatabase();
-        String query = "SELECT leituraatualizada FROM leituras ORDER BY id DESC LIMIT 1";
-        Cursor cursor = db.rawQuery(query, null);
-        if (cursor != null && cursor.moveToFirst()) {
-            // captura o valor da coluna leituraatualizada do cursor, com o // ID em ordem decrescente com o limite de, retornando assim o ultimo valor cadastrado
-            leituraAnterior = cursor.getString(cursor.getColumnIndex("leituraatualizada"));
-        }
-        cursor.close();
-        db.close();
-        return leituraAnterior; // retorna o resutado do bd nessa string que sera chamada pela funcao em outra classe, na Telahome.java
     }
 
     public void salvarLeituraAtual(String leitura) {
@@ -57,6 +46,22 @@ public class AcessoBD extends SQLiteOpenHelper {
 
         db.close();
     }
+
+    public String getUltimaLeitura() {
+        String leituraAnterior = "";
+        SQLiteDatabase db = getReadableDatabase(); // LEITURA DE BANCO DADOS
+        String query = "SELECT leituraatualizada FROM leituras ORDER BY id DESC LIMIT 1";
+        Cursor cursor = db.rawQuery(query, null); //consulta o banco de dados atravez da variavel querry e armazena o resultado no objeto Cursor
+        if (cursor != null && cursor.moveToFirst()) {// objeto Cursor nao é nulo? resultou em algo?
+            // moveTofirst -- retorna true no caso de haver registro(s( proveniente(s) da consulta
+            // captura o valor da coluna leituraatualizada do cursor, com o // ID em ordem decrescente com o limite de, retornando assim o ultimo valor cadastrado
+            leituraAnterior = cursor.getString(cursor.getColumnIndex("leituraatualizada"));//obtem o dado da coluna leitura atualizada como uma sring e a variavel leituraAnterior recebe essa consulta em string
+        }
+        cursor.close(); // encerra o cursor
+        db.close();// encerra conexao bd.
+        return leituraAnterior; // retorna o resutado do bd nessa string que sera chamada pela funcao em outra classe, na Telahome.java
+    }
+
 
     public void salvarConsumo(String consumo) {
         // mesma coisa da funcao de cima, porem salvando um valor vindo da classe Telahome.java,
@@ -89,7 +94,7 @@ public class AcessoBD extends SQLiteOpenHelper {
                         cursor.getString
                         (cursor.getColumnIndex
                                 ("listaconsumo"));
-                // Obtém o valor da coluna listaconsumo do cursor
+                // Obtém o valor da coluna listaconsumo do cursor em string
 
                 listaConsumo.add(consumido);
                 // Adiciona o valor de consumo à lista
