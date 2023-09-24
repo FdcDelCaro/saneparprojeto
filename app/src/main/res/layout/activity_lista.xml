@@ -15,7 +15,7 @@
         android:layout_width="166dp"
         android:layout_height="55dp"
         android:drawableLeft="@drawable/baseline_water_drop_24"
-        android:text="Voltar"
+        android:text="Anterior"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
