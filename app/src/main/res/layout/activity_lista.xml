@@ -13,7 +13,7 @@
         android:id="@+id/voltar"
         style="@style/BlueButton"
         android:layout_width="166dp"
-        android:layout_height="53dp"
+        android:layout_height="55dp"
         android:drawableLeft="@drawable/baseline_water_drop_24"
         android:text="Voltar"
         android:textSize="18sp"
