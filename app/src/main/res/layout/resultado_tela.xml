@@ -59,11 +59,11 @@
         android:layout_height="328dp"
         android:drawableLeft="@drawable/baseline_water_drop_24"
 
-        android:rotationY="4"
+        android:rotationY="0"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/voltar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.806"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resultadoconsumido"
         app:layout_constraintVertical_bias="0.619" />
