@@ -9,6 +9,13 @@
         <item name="android:layout_height">49dp</item>
     </style>
 
+    <style name="barra" parent="Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:background">@drawable/button_background</item>
+        <item name="android:textColor">@color/teal_700</item> <!-- Cor blue -->
+        <item name="android:layout_width">96dp</item>
+        <item name="android:layout_height">49dp</item>
+    </style>
+
 
 
 </resources>

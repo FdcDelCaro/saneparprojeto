@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "273346652271",
+    "project_id": "saneparprojeto",
+    "storage_bucket": "saneparprojeto.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:273346652271:android:ac70a1e6293be2335e459a",
+        "android_client_info": {
+          "package_name": "Simulador.saneparprojeto"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJi1AYZy06aAykasMdMRYq3bn53IdC9kw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
