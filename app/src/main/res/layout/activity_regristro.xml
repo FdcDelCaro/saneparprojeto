@@ -1,22 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+
+    android:background="@drawable/fundo"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:padding="16dp">
 
-    android:background="?attr/actionMenuTextColor">
-
-
+    <EditText
+        android:id="@+id/ednome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nome"
+        android:layout_marginBottom="16dp"
+        android:textColorHint="#CCCCCC"
+        android:padding="16dp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/texto_fundo_login"/>
+    te
+    <EditText
+        android:id="@+id/ednomeuser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nome de Usuário"
+        android:layout_below="@id/ednome"
+        android:layout_marginBottom="16dp"
+        android:textColorHint="#CCCCCC"
+        android:padding="16dp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/texto_fundo_login"/>
 
     <EditText
         android:id="@+id/edmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email"
-        android:layout_marginBottom="16dp"/>
+        android:layout_below="@id/ednomeuser"
+        android:layout_marginBottom="16dp"
+        android:textColorHint="#CCCCCC"
+        android:padding="16dp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/texto_fundo_login"/>
 
     <EditText
         android:id="@+id/edsenha"
@@ -25,60 +48,71 @@
         android:hint="Senha"
         android:inputType="textPassword"
         android:layout_below="@id/edmail"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp"
+        android:textColorHint="#CCCCCC"
+        android:padding="16dp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/texto_fundo_login"/>
 
     <EditText
         android:id="@+id/confirmarsenha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/edmail"
-        android:layout_marginTop="80dp"
-        android:layout_marginBottom="16dp"
         android:hint="Confirmar senha"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:layout_below="@id/edsenha"
+        android:layout_marginBottom="16dp"
+        android:textColorHint="#CCCCCC"
+        android:padding="16dp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/texto_fundo_login"/>
+
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/confirmarsenha"
+        android:text="Mostrar Senha"
+        android:buttonTint="@color/black"
+
+        android:textColorHint="#CCCCCC"
+        android:textColor="#FFFFFF"/>
 
     <Button
         android:id="@+id/btregistro"
-        android:layout_width="match_parent"
+        android:layout_width="363dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/edsenha"
-        android:layout_marginTop="246dp"
+        android:layout_below="@id/checkbox"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/fundo_botoes"
         android:onClick="register"
-        android:text="Cadastrar" />
+        android:padding="8dp"
+        android:text="Cadastrar"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#CCCCCC" />
 
     <TextView
         android:id="@+id/textViewLogin"
-        android:layout_width="271dp"
-        android:layout_height="36dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@id/btregistro"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:onClick="goToLogin"
-        android:text="Já tem uma conta? clique aqui para login"
-        android:textColor="#232323" />
+        android:text="Já tem uma conta? Clique aqui para login"
 
-    <CheckBox
-        android:id="@+id/checkbox"
-        android:layout_width="297dp"
-        android:layout_height="31dp"
-        android:layout_alignEnd="@+id/edmail"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="212dp"
-        android:layout_marginEnd="96dp"
-        android:layout_marginRight="70dp"
-        android:buttonTint="@color/black"
-        android:text="Mostrar Senha"
-        android:textColor="@color/black" />
+        android:textColorHint="#CCCCCC"
+        android:padding="8dp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/texto_fundo_login"/>
 
     <ProgressBar
         android:id="@+id/progresso"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="165dp"
+        android:layout_below="@id/textViewLogin"
+        android:layout_marginTop="20dp"
         android:indeterminate="true"
         android:indeterminateTint="@color/black"
         android:visibility="invisible" />

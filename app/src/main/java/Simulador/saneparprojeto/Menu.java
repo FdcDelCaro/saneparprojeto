@@ -22,7 +22,7 @@ public class Menu extends AppCompatActivity {
         super.onStart();
         FirebaseUser currentuser = FirebaseAuth.getInstance().getCurrentUser();
         if(currentuser == null){
-            Intent intent = new Intent(Menu.this, login.class);
+            Intent intent = new Intent(Menu.this, Login.class);
             startActivity(intent);
             finish();
         }
@@ -38,7 +38,7 @@ public class Menu extends AppCompatActivity {
             public void onClick(View view) {
                 mAuth.signOut();
 
-                Intent intent = new Intent(Menu.this, login.class);
+                Intent intent = new Intent(Menu.this, Login.class);
                 startActivity(intent);
                 finish();
             }

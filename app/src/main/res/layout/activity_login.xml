@@ -1,72 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:background="@drawable/fundo"
     android:layout_height="match_parent"
+
     android:padding="16dp">
 
-
-    "
-
-
-    <EditText
-        android:id="@+id/editTextUsername"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:hint="Username" />
-
-    <EditText
-        android:id="@+id/editTextPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextUsername"
-        android:layout_marginTop="44dp"
-        android:layout_marginBottom="16dp"
-        android:hint="Password"
-        android:inputType="textPassword" />
-
-    <CheckBox
-        android:layout_width="203dp"
-        android:layout_height="33dp"
-        android:layout_alignEnd="@+id/editTextUsername"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="207dp"
-        android:layout_marginEnd="178dp"
-        android:layout_marginRight="70dp"
-        android:buttonTint="@color/black"
-        android:text="Mostrar Senha"
-        android:textColor="@color/black"
-        android:id="@+id/checkbox"/>
-
-    <Button
-        android:id="@+id/buttonLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextPassword"
-        android:layout_marginTop="260dp"
-        android:onClick="login"
-        android:text="Login" />
-
-    <Button
-        android:id="@+id/Register"
+    <!-- Container -->
+    <RelativeLayout
+        android:id="@+id/loginContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Don't have an account? Register here"
-        android:layout_below="@id/buttonLogin"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:textColor="@android:color/darker_gray"
-        android:onClick="goToRegister"/>
+        android:layout_centerInParent="true"
+        android:background="@drawable/login_fundo"
+
+        android:padding="24dp">
+
+        <!-- Icon -->
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="24dp"
+            android:contentDescription="Login Icon"
+            android:src="@drawable/usuarioladobarralogin" />
+
+        <!-- Username -->
+        <EditText
+            android:id="@+id/editTextUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/icon"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/texto_fundo_login"
+            android:drawablePadding="10dp"
+            android:hint="Usuário"
+            android:textColorHint="#CCCCCC"
+            android:padding="16dp"
+            android:textColor="#FFFFFF" />
+
+        <!-- Password -->
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextUsername"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/texto_fundo_login"
+            android:drawablePadding="10dp"
+            android:hint="Senha"
+            android:textColorHint="#CCCCCC"
+            android:inputType="textPassword"
+            android:padding="16dp"
+            android:textColor="#FFFFFF" />
+
+        <!-- Remember me Checkbox -->
+        <CheckBox
+            android:id="@+id/checkboxRememberMe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextPassword"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="8dp"
+            android:text="Lembre-me"
+            android:textColor="#CCCCCC" />
+
+        <!-- Show Password Checkbox -->
+        <CheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/checkboxRememberMe"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="8dp"
+            android:text="Mostrar Senha"
+            android:textColor="#CCCCCC" />
+
+        <!-- Forgot Password -->
+        <TextView
+            android:id="@+id/textViewForgotPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editTextPassword"
+            android:layout_alignBaseline="@id/checkboxRememberMe"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="8dp"
+            android:clickable="true"
+            android:text="Esqueceu a senha?"
+            android:textColor="#CCCCCC" />
+
+        <!-- Login Button -->
+        <Button
+            android:id="@+id/buttonLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/checkbox"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/texto_fundo_login"
+            android:text="Login"
+            android:textColor="#FFFFFF" />
+
+        <!-- Register Button -->
+        <Button
+            android:id="@+id/Register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/buttonLogin"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/texto_fundo_login"
+            android:text="Cadastre-se"
+            android:textColor="#FFFFFF" />
+
+    </RelativeLayout>
 
     <ProgressBar
+        android:id="@+id/progressobar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/progresso"
-        android:indeterminateTint="@color/black"
+        android:layout_marginTop="20dp"
         android:indeterminate="true"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:visibility="invisible"
-        />
+        android:indeterminateTint="@color/black"
+        android:visibility="invisible" />
+
 </RelativeLayout>

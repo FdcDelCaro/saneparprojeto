@@ -1,6 +1,6 @@
 <!-- button_background.xml -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="#24344B" /> <!-- Cor azul piscina -->
+    <solid android:color="#AB000000" /> <!-- Cor azul piscina -->
 
 
     <corners android:topLeftRadius="22dp" /> <!-- Cantos arredondados -->

@@ -12,10 +12,10 @@
         android:theme="@style/Theme.Saneparprojeto"
         tools:targetApi="31">
         <activity
-            android:name=".regristro"
+            android:name=".Registro"
             android:exported="false" />
         <activity
-            android:name=".login"
+            android:name=".Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
