@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -16,6 +17,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 public class Login extends AppCompatActivity {
+    private static final String TAG = "LoginActivity"; // Tag para logs
     private EditText editTextUsername;
     private EditText editTextPassword;
     private Button buttonLogin;
@@ -34,11 +36,10 @@ public class Login extends AppCompatActivity {
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonLogin = findViewById(R.id.buttonLogin);
         Register = findViewById(R.id.Register);
-        progresso = findViewById(R.id.progressobar);
+        progresso = findViewById(R.id.progressobar); // Certifique-se de que o ID está correto
         checkbox = findViewById(R.id.checkbox);
 
         Register.setOnClickListener(new View.OnClickListener() {
-            //botao que do menu que ira enviar desta tela para a telahome, que é minha tela de calculo
             @Override
             public void onClick(View view) {
                 Intent in = new Intent(Login.this, Registro.class);
@@ -51,17 +52,26 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
                 String username = editTextUsername.getText().toString();
                 String senha = editTextPassword.getText().toString();
+
+                Log.d(TAG, "Botão de login clicado."); // Adiciona log
+                Log.d(TAG, "Username: " + username); // Adiciona log
+                Log.d(TAG, "Senha: " + senha); // Adiciona log
+
                 if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(senha)) {
                     progresso.setVisibility(View.VISIBLE);
                     boolean usuarioValido = acessoBD.verificarUsuario(username, senha);
                     progresso.setVisibility(View.INVISIBLE);
+                    Log.d(TAG, "Usuario válido: " + usuarioValido); // Adiciona log
+
                     if (usuarioValido) {
                         abrirTelaPrincipal();
                     } else {
                         Toast.makeText(Login.this, "Conta não encontrada, por favor registre-se", Toast.LENGTH_LONG).show();
+                        Log.d(TAG, "Conta não encontrada."); // Adiciona log
                     }
                 } else {
                     Toast.makeText(Login.this, "Todos os campos devem ser preenchidos!", Toast.LENGTH_SHORT).show();
+                    Log.d(TAG, "Campos vazios."); // Adiciona log
                 }
             }
         });
@@ -78,15 +88,15 @@ public class Login extends AppCompatActivity {
         });
     }
 
-
-
     private void abrirTelaPrincipal() {
+        Log.d(TAG, "Abrindo tela principal."); // Adiciona log
         Intent intent = new Intent(Login.this, Menu.class);
         startActivity(intent);
         finish(); // Fecha a atividade atual
     }
 
     public void goToRegister(View view) {
+        Log.d(TAG, "Indo para a tela de registro."); // Adiciona log
         Intent intent = new Intent(this, Registro.class);
         startActivity(intent);
     }

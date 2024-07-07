@@ -2,9 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:background="@drawable/fundo"
     android:layout_height="match_parent"
-
+    android:background="@drawable/fundo"
     android:padding="16dp">
 
     <!-- Container -->
@@ -14,7 +13,6 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:background="@drawable/login_fundo"
-
         android:padding="24dp">
 
         <!-- Icon -->
@@ -39,7 +37,8 @@
             android:hint="Usuário"
             android:textColorHint="#CCCCCC"
             android:padding="16dp"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:drawableLeft="@drawable/usuario"/>
 
         <!-- Password -->
         <EditText
@@ -54,7 +53,8 @@
             android:textColorHint="#CCCCCC"
             android:inputType="textPassword"
             android:padding="16dp"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:drawableLeft="@drawable/senhaico"/>/>
 
         <!-- Remember me Checkbox -->
         <CheckBox
@@ -99,6 +99,7 @@
             android:layout_below="@id/checkbox"
             android:layout_marginTop="24dp"
             android:background="@drawable/texto_fundo_login"
+
             android:text="Login"
             android:textColor="#FFFFFF" />
 
@@ -113,16 +114,18 @@
             android:text="Cadastre-se"
             android:textColor="#FFFFFF" />
 
-    </RelativeLayout>
+        <!-- Progress Bar -->
+        <ProgressBar
+            android:id="@+id/progressobar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Register"
+            android:layout_marginTop="20dp"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/black"
+            android:visibility="invisible" />
 
-    <ProgressBar
-        android:id="@+id/progressobar"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:indeterminate="true"
-        android:indeterminateTint="@color/black"
-        android:visibility="invisible" />
+    </RelativeLayout>
 
 </RelativeLayout>

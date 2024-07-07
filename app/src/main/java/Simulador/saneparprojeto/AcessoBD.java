@@ -30,10 +30,12 @@ public class AcessoBD extends SQLiteOpenHelper {
         db.execSQL(criarTbusuario);
     }
 
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // Implementar lógica de atualização de banco de dados, se necessário
+        db.execSQL("DROP TABLE IF EXISTS leituras");
+        db.execSQL("DROP TABLE IF EXISTS consumo");
+        db.execSQL("DROP TABLE IF EXISTS usuario");
+        onCreate(db);
     }
 
     public boolean verificarUsuario(String nomeUser, String senha) {

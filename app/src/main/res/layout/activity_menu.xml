@@ -8,6 +8,61 @@
     android:background="@drawable/agua5"
     tools:context=".Menu">
 
+    <RelativeLayout
+        android:id="@+id/loginContainer"
+        android:layout_width="363dp"
+        android:layout_height="433dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/login_fundo"
+        android:padding="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/leitura"
+
+            style="@style/BlueButton"
+            android:layout_width="233dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+
+            android:layout_marginStart="53dp"
+            android:layout_marginEnd="53dp"
+            android:layout_marginBottom="278dp"
+            android:background="@drawable/button_background"
+            android:drawableLeft="@drawable/baseline_water_drop_24"
+            android:text="Leitura"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintVertical_bias="0.233" />
+
+        <Button
+            android:id="@+id/list"
+
+            style="@style/BlueButton"
+            android:layout_width="325dp"
+            android:layout_height="48dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="85dp"
+            android:drawableLeft="@drawable/baseline_water_drop_24"
+            android:drawableBottom="@color/black"
+            android:text="Histórico de consumo"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintVertical_bias="0.521" />
+
+    </RelativeLayout>
+
     <Button
         android:id="@+id/sair"
         style="@style/BlueButton"
@@ -31,6 +86,7 @@
         android:layout_height="65dp"
         android:drawableLeft="@drawable/baseline_water_drop_24"
         android:text="LEITOR DE HIDROMETRO"
+        android:background="@drawable/texto_fundo_login"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,35 +94,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.024" />
 
-    <Button
-        android:id="@+id/leitura"
-        style="@style/BlueButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/button_background"
-        android:drawableLeft="@drawable/baseline_water_drop_24"
-        android:text="Leitura"
 
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.233" />
 
-    <Button
-        android:id="@+id/list"
-
-        style="@style/BlueButton"
-        android:layout_width="335dp"
-        android:layout_height="54dp"
-        android:drawableLeft="@drawable/baseline_water_drop_24"
-        android:drawableBottom="@color/black"
-        android:text="Histórico de consumo"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.521" />
 </androidx.constraintlayout.widget.ConstraintLayout>
