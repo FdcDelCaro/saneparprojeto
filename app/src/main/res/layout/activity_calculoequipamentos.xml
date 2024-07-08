@@ -1,0 +1,45 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <EditText
+        android:id="@+id/leiturainicial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Leitura Inicial (ex: 35.3485 m³)"
+        android:inputType="numberDecimal"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/final_reading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Leitura Final (ex: 35.3535 m³)"
+        android:inputType="numberDecimal"
+        android:layout_below="@id/leiturainicial"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true" />
+
+
+    <Button
+        android:id="@+id/calculate_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calcular Consumo"
+        android:layout_below="@id/final_reading"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/result_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Consumo e Custo:"
+        android:textSize="18sp"
+        android:layout_below="@id/calculate_button"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
