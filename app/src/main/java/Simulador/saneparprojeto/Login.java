@@ -42,7 +42,7 @@ public class Login extends AppCompatActivity {
         Register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent in = new Intent(Login.this, Calculoequipamentos.class);
+                Intent in = new Intent(Login.this, Registro.class);
                 startActivity(in);
             }
         });

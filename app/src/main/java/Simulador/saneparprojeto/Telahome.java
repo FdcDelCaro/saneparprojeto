@@ -30,7 +30,6 @@ public class Telahome extends AppCompatActivity {
         consumosimulado = findViewById(R.id.resultconsum);
         resultado2 = findViewById(R.id.resultadofinal);
         Calcular = findViewById(R.id.Calcular);
-
         Listaconsumo = findViewById(R.id.listaconsumo);
 
         acessoBD = new AcessoBD(this);
@@ -46,8 +45,6 @@ public class Telahome extends AppCompatActivity {
             }
         });
 
-
-
         Calcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,18 +52,23 @@ public class Telahome extends AppCompatActivity {
                 String n2 = leitura_anterior.getText().toString();
                 double intervcons = 5; // intervalo de taxas de consumo em metros cúbicos
                 double intervconsa30 = 10; // intervalo de taxas de consumo em metros cúbicos acima de 30
-                double taxamin = 45.25;
-                double taxa1 = 1.4; // de 5 a 10m³
-                double taxa2 = 7.8; // de 6 a 15m³
-                double taxa3 = 7.84; // de 16 a 20m³
-                double taxa4 = 7.90; // de 21 a 30m³
-                double taxa5 = 13.37; // acima de 30m³
-                double esgoto1 = 38.46 / 5; // valor da taxa de esgoto para cada m³, considerando 0 a 5m³.
-                double esgoto2 = 5.95 / 5;  // mesma coisa, porém com taxa de 6 a 10m³
-                double esgoto3 = 33.15 / 5; // 11 a 15m³
-                double esgoto4 = 33.32 / 5; // 16 a 20m³
-                double esgoto5 = 67.15 / 10; // 21 a 30m³
-                double esgoto6 = 11.36; // acima de 30m³, cada taxa de esgoto por metro cúbico
+
+                // Valores atualizados
+                double taxamin = 50.42;
+                double taxa1 = 1.56; // de 6 a 10m³
+                double taxa2 = 8.69; // de 11 a 15m³
+                double taxa3 = 8.73; // de 16 a 20m³
+                double taxa4 = 8.81; // de 21 a 30m³
+                double taxa5 = 14.90; // acima de 30m³
+
+                // Valores atualizados do esgoto (85% do valor da água)
+                double esgoto1 = 42.85 / 5; // valor da taxa de esgoto para cada m³, considerando 0 a 5m³.
+                double esgoto2 = 6.63 / 5;  // mesma coisa, porém com taxa de 6 a 10m³
+                double esgoto3 = 36.93 / 5; // 11 a 15m³
+                double esgoto4 = 37.10 / 5; // 16 a 20m³
+                double esgoto5 = 74.88 / 10; // 21 a 30m³
+                double esgoto6 = 12.66; // acima de 30m³, cada taxa de esgoto por metro cúbico
+
                 double preco;
                 double num1 = Double.parseDouble(n1);
                 double num2 = Double.parseDouble(n2);
@@ -82,8 +84,6 @@ public class Telahome extends AppCompatActivity {
                 acessoBD.salvarConsumo(String.valueOf(consumo));// abaixo comentario
                 // manda o valor para a funcao na classe Acessobd.java
                 // que fara as tratativas de adicionar no bd
-
-
 
                 if (consumo <= 5) {
                     preco = taxamin + esgoto1 * intervcons;
@@ -101,6 +101,7 @@ public class Telahome extends AppCompatActivity {
                     intent.putExtra("resultadofinal", preco);
                     intent.putExtra("consumido", consumo);
 
+                    startActivity(intent);
                     startActivity(intent);
                 } else if (consumo <= 15) {
                     preco = taxamin + intervcons * taxa1 + (consumo - 10) * taxa2 + esgoto1 * intervcons + esgoto2 * intervcons + (consumo - 10) * esgoto3;
