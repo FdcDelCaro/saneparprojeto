@@ -41,7 +41,7 @@ public class Resultadocalc extends AppCompatActivity {
         listaconsumo.setAdapter(listaconsumovetor);// meu list view para mostra os dados do arrayadapter na tela
 
         //  lista de consumo vindo do banco de dados
-        List<String> listaConsumo = acessoBD.listaconsumido();// funcao da classe acessobd que ira retorna um valor
+        List<String> listaConsumo = acessoBD.listarConsumos();// funcao da classe acessobd que ira retorna um valor
         //para adicioanr no array
 
         // lista de consumo no ArrayAdapter

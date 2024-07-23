@@ -11,6 +11,7 @@ public class Menu extends AppCompatActivity {
     Button leitura;
     Button lista;
     Button sair;
+    Button consumoequipamento;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,7 @@ public class Menu extends AppCompatActivity {
         leitura = findViewById(R.id.leitura);
         lista = findViewById(R.id.list);
         sair = findViewById(R.id.sair);
+        consumoequipamento = findViewById(R.id.consumo_acessorios);
 
         sair.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +45,14 @@ public class Menu extends AppCompatActivity {
             public void onClick(View view) {
                 Intent in = new Intent(Menu.this, Lista.class);
                 startActivity(in);
+            }
+        });
+
+        consumoequipamento.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent telanova = new Intent(Menu.this, Calculoequipamentos.class);
+                startActivity((telanova));
             }
         });
     }

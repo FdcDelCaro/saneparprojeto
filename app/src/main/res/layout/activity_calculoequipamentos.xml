@@ -23,13 +23,30 @@
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true" />
 
+    <EditText
+        android:id="@+id/equipment_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Nome do Equipamento"
+        android:layout_below="@id/final_reading"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/add_equipment_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adicionar Equipamento"
+        android:layout_below="@id/equipment_name"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/calculate_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Calcular Consumo"
-        android:layout_below="@id/final_reading"
+        android:layout_below="@id/add_equipment_button"
         android:layout_marginTop="20dp"
         android:layout_centerHorizontal="true" />
 
