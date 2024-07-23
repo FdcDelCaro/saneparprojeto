@@ -14,12 +14,11 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textSize="16sp"
-
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/resultadoconsumido"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.079" />
+        app:layout_constraintVertical_bias="0.2" />
 
     <TextView
         android:id="@+id/resultadoconsumido"
@@ -28,19 +27,28 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/consumolist"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.213" />
+        app:layout_constraintTop_toBottomOf="@+id/resultado"
+        app:layout_constraintVertical_bias="0.1" />
+
+    <ListView
+        android:id="@+id/consumolist"
+        style="@style/transparenciabranca"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/voltar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resultadoconsumido"
+        app:layout_constraintVertical_bias="0.5" />
 
     <Button
         android:id="@+id/voltar"
         style="@style/BlueButton"
-        android:layout_width="169dp"
-        android:layout_height="48dp"
-
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@drawable/button_background"
         android:drawableLeft="@drawable/baseline_water_drop_24"
         android:text="Voltar"
@@ -48,24 +56,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultado"
-        app:layout_constraintVertical_bias="0.917" />
-
-    <ListView
-        android:id="@+id/consumolist"
-        style="@style/transparenciabranca"
-
-        android:layout_width="380dp"
-        android:layout_height="328dp"
-        android:drawableLeft="@drawable/baseline_water_drop_24"
-
-        android:rotationY="0"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/voltar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.516"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultadoconsumido"
-        app:layout_constraintVertical_bias="0.619" />
+        app:layout_constraintTop_toBottomOf="@+id/consumolist"
+        app:layout_constraintVertical_bias="0.8" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

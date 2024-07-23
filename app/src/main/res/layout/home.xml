@@ -1,137 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/agua5"
-    tools:context=".Telahome">
+    android:background="@drawable/agua1"
+    android:padding="16dp">
 
-    <TextView
-        android:id="@+id/leitura11"
-        style="@style/BlueButton"
-        android:layout_width="wrap_content"
 
-        android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/baseline_water_drop_24"
-        android:text="Leitura atual:"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.471"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.15" />
+    <RelativeLayout
+        android:id="@+id/loginContainer"
+        android:layout_width="341dp"
+        android:layout_height="541dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/login_fundo"
+        android:padding="24dp">
+        <!-- TextView para Leitura Atual -->
+        <TextView
+            android:id="@+id/leitura11"
+            style="@style/BlueButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:drawableLeft="@drawable/baseline_water_drop_24"
+            android:text="Leitura atual"
+            android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/leitura21"
+        <!-- EditText para Leitura Atual -->
+        <EditText
+            android:id="@+id/leitura1"
+            style="@style/transparencia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/leitura11"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
 
-        style="@style/BlueButton"
-        android:layout_width="wrap_content"
+        <!-- TextView para Leitura Anterior -->
+        <TextView
+            android:id="@+id/leitura21"
+            style="@style/BlueButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/leitura1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:drawableLeft="@drawable/baseline_water_drop_24"
+            android:text="Leitura Anterior"
+            android:textSize="20sp" />
 
-        android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/baseline_water_drop_24"
-        android:text="Leitura Anterior:"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.366" />
+        <!-- EditText para Leitura Anterior -->
+        <EditText
+            android:id="@+id/leitura2"
+            style="@style/transparencia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/leitura21"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/resultconsum"
-        android:layout_width="232dp"
-        android:layout_height="41dp"
-        android:text="CONSUMIDO:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.589" />
+        <!-- TextView para Consumo -->
+        <TextView
+            android:id="@+id/resultconsum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/leitura2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:text="CONSUMIDO:"
+            android:textColor="#FFFFFF" />
 
-    <TextView
-        android:id="@+id/resultadofinal"
-        android:layout_width="232dp"
-        android:layout_height="41dp"
-        android:text="Resultado:"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.775" />
+        <!-- TextView para Resultado Final -->
+        <TextView
+            android:id="@+id/resultadofinal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/resultconsum"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:text="Resultado:"
+            android:textColor="#FFFFFF" />
 
-    <EditText
-        android:id="@+id/leitura1"
-        style="@style/transparencia"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25" />
+        <!-- Button para Calcular -->
+        <Button
+            android:id="@+id/Calcular"
+            style="@style/BlueButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/resultadofinal"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:drawableLeft="@drawable/baseline_water_drop_24"
+            android:text="Converter"
+            android:textSize="18sp" />
 
-    <EditText
-        android:id="@+id/leitura2"
-        style="@style/transparencia"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="numberDecimal"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.462" />
+        <!-- Button para Lista de Consumo -->
+        <Button
+            android:id="@+id/listaconsumo"
+            style="@style/BlueButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/Calcular"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:drawableLeft="@drawable/baseline_water_drop_24"
+            android:text="Lista de consumo"
+            android:textSize="18sp" />
 
-    <Button
-        android:id="@+id/Calcular"
-        style="@style/BlueButton"
-        android:drawableLeft="@drawable/baseline_water_drop_24"
-        android:textSize="18sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Converter"
+        <!-- ListView para Exibir Dados -->
 
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.54"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.875" />
+    </RelativeLayout>
 
-    <Button
-        android:id="@+id/listaconsumo"
-        style="@style/BlueButton"
-        android:drawableLeft="@drawable/baseline_water_drop_24"
-        android:textSize="18sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Lista de consumo"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.54"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
-
-    <ListView
-        android:id="@+id/teste"
-        android:layout_width="171dp"
-        android:layout_height="42dp"
-        tools:layout_editor_absoluteX="120dp"
-        tools:layout_editor_absoluteY="474dp" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

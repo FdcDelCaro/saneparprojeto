@@ -66,7 +66,7 @@ public class Registro extends AppCompatActivity {
                         !TextUtils.isEmpty(senhacadastro) && !TextUtils.isEmpty(confsenha)) {
                     if (senhacadastro.equals(confsenha)) {
                         barraprog.setVisibility(View.VISIBLE);
-                        long result = acessoBD.addUsuario(nome, registroemail, nomeUser, senhacadastro);
+                        long result = acessoBD.adicionarUsuario(nome, registroemail, nomeUser, senhacadastro);
                         barraprog.setVisibility(View.INVISIBLE);
                         if (result != -1) {
                             Toast.makeText(Registro.this, "Registro bem-sucedido!", Toast.LENGTH_LONG).show();

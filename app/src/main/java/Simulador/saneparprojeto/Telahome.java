@@ -15,10 +15,8 @@ public class Telahome extends AppCompatActivity {
     TextView consumosimulado;
     TextView resultado2;
     Button Calcular;
-    TextView teste2;
-    AcessoBD acessoBD;
-
     Button Listaconsumo;
+    AcessoBD acessoBD;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +32,7 @@ public class Telahome extends AppCompatActivity {
 
         acessoBD = new AcessoBD(this);
 
-        String leituraAnterior = acessoBD.getUltimaLeitura();
+        String leituraAnterior = acessoBD.obterUltimaLeitura();
         leitura_anterior.setText(leituraAnterior);
 
         Listaconsumo.setOnClickListener(new View.OnClickListener() {
@@ -62,79 +60,59 @@ public class Telahome extends AppCompatActivity {
                 double taxa5 = 14.90; // acima de 30m³
 
                 // Valores atualizados do esgoto (85% do valor da água)
-                double esgoto1 = 42.85 / 5; // valor da taxa de esgoto para cada m³, considerando 0 a 5m³.
+                double esgoto0 = 42.85; // taxa fixa até 5m2
+                double esgoto1 = 42.85 / 5; // valor da taxa de esgoto para cada m³, considerando 0 a 5m³, mais util para os calculos
                 double esgoto2 = 6.63 / 5;  // mesma coisa, porém com taxa de 6 a 10m³
                 double esgoto3 = 36.93 / 5; // 11 a 15m³
                 double esgoto4 = 37.10 / 5; // 16 a 20m³
-                double esgoto5 = 74.88 / 10; // 21 a 30m³
-                double esgoto6 = 12.66; // acima de 30m³, cada taxa de esgoto por metro cúbico
+                double esgoto5 = 74.89 / 10; // 21 a 30m³
+                double esgoto6 = 12.66 ;  // acima de 30m³
 
-                double preco;
+                if (n1.isEmpty() || n2.isEmpty()) {
+                    return;
+                }
+
                 double num1 = Double.parseDouble(n1);
                 double num2 = Double.parseDouble(n2);
-                double n3 = num1 - num2;
-                double consumo = n3;
+                double soma = 0;
+                double soma_esgoto = 0;
+                double valortotal = 0;
+                double consumo = 0;
 
-                consumosimulado.setText(String.valueOf("O seu consumo foi: " + consumo + "m³" + "\n" + "1m³ equivale a uma caixa d'água de mil litros"));
+                if (num1 > num2) {
+                    consumo = num1 - num2;
 
-                acessoBD.salvarLeituraAtual(n1); // abaixo comentario
-                // manda o valor para a funcao na classe Acessobd.java
-                // que fara as tratativas de adicionar no bd
+                    if (consumo <= 5) {
+                        soma = taxamin;
+                        soma_esgoto = esgoto0;
+                    } else if (consumo <= 10) {
+                        soma = taxamin + taxa1 * (consumo - 5);
+                        soma_esgoto = esgoto1 * 5 + esgoto2 * (consumo - 5);
+                    } else if (consumo <= 15) {
+                        soma = taxamin + taxa1 * intervcons + taxa2 * (consumo - 10);
+                        soma_esgoto = esgoto1 * 5 + esgoto2 * 5 + esgoto3 * (consumo - 10);
+                    } else if (consumo <= 20) {
+                        soma = taxamin + taxa1 * intervcons + taxa2 * intervcons + taxa3 * (consumo - 15);
+                        soma_esgoto = esgoto1 * 5 + esgoto2 * 5 + esgoto3 * 5 + esgoto4 * (consumo - 15);
+                    } else if (consumo <= 30) {
+                        soma = taxamin + taxa1 * intervcons + taxa2 * intervcons + taxa3 * intervcons + taxa4 * (consumo - 20);
+                        soma_esgoto = esgoto1 * 5 + esgoto2 * 5 + esgoto3 * 5 + esgoto4 * 10 + esgoto5 * (consumo - 20);
+                    } else {
+                        soma = taxamin + taxa1 * intervcons + taxa2 * intervcons + taxa3 * intervcons + taxa4 * intervconsa30 + taxa5 * (consumo - 30);
+                        soma_esgoto = esgoto1 * 5 + esgoto2 * 5 + esgoto3 * 5 + esgoto4 * 10 + esgoto5 * 10 + esgoto6 * (consumo - 30);
+                    }
 
-                acessoBD.salvarConsumo(String.valueOf(consumo));// abaixo comentario
-                // manda o valor para a funcao na classe Acessobd.java
-                // que fara as tratativas de adicionar no bd
+                    valortotal = soma + soma_esgoto;
+                    acessoBD.salvarConsumo(consumo, valortotal);
+                    acessoBD.salvarLeituraAtual(n1);
+                    double caixas = consumo * 1000 / 500;
 
-                if (consumo <= 5) {
-                    preco = taxamin + esgoto1 * intervcons;
-                    resultado2.setText(String.valueOf("O preço do consumo é: R$" + preco));
+                    consumosimulado.setText(String.format("Você consumiu %.2f m³ \n\n Equivalente a %.1f Caixas d'agua",consumo,caixas));
 
-                    Intent intent = new Intent(Telahome.this, Resultadocalc.class);
-                    intent.putExtra("resultadofinal", preco);
-                    intent.putExtra("consumido", consumo);
-
-                    startActivity(intent);
-                } else if (consumo <= 10) {
-                    preco = taxamin + (consumo - intervcons) * taxa1 + esgoto1 * intervcons + (consumo - intervcons) * esgoto2;
-                    resultado2.setText(String.valueOf("O preço do consumo é: R$" + preco));
-                    Intent intent = new Intent(Telahome.this, Resultadocalc.class);
-                    intent.putExtra("resultadofinal", preco);
-                    intent.putExtra("consumido", consumo);
-
-                    startActivity(intent);
-                    startActivity(intent);
-                } else if (consumo <= 15) {
-                    preco = taxamin + intervcons * taxa1 + (consumo - 10) * taxa2 + esgoto1 * intervcons + esgoto2 * intervcons + (consumo - 10) * esgoto3;
-                    resultado2.setText(String.valueOf("O preço do consumo é: R$" + preco));
-                    Intent intent = new Intent(Telahome.this, Resultadocalc.class);
-                    intent.putExtra("resultadofinal", preco);
-                    intent.putExtra("consumido", consumo);
-
-                    startActivity(intent);
-                } else if (consumo <= 20) {
-                    preco = taxamin + intervcons * taxa1 + intervcons * taxa2 + (consumo - 15) * taxa3 + esgoto1 * intervcons + esgoto2 * intervcons + esgoto3 * intervcons + (consumo - 15) * esgoto4;
-                    resultado2.setText(String.valueOf("O preço do consumo é: R$" + preco));
-                    Intent intent = new Intent(Telahome.this, Resultadocalc.class);
-                    intent.putExtra("resultadofinal", preco);
-                    intent.putExtra("consumido", consumo);
-
-                    startActivity(intent);
-                } else if (consumo <= 30) {
-                    preco = taxamin + intervcons * taxa1 + intervcons * taxa2 + intervcons * taxa3 + (consumo - 20) * taxa4 + esgoto1 * intervcons + esgoto2 * intervcons + esgoto3 * intervcons + esgoto4 * intervcons + (consumo - 20) * esgoto5;
-                    resultado2.setText(String.valueOf("O preço do consumo é: R$" + preco));
-                    Intent intent = new Intent(Telahome.this, Resultadocalc.class);
-                    intent.putExtra("resultadofinal", preco);
-                    intent.putExtra("consumido", consumo);
-
-                    startActivity(intent);
-                } else if (consumo > 30) {
-                    preco = taxamin + intervcons * taxa1 + intervcons * taxa2 + intervcons * taxa3 + intervconsa30 * taxa4 + (consumo - 30) * taxa5 + esgoto1 * intervcons + esgoto2 * intervcons + esgoto3 * intervcons + esgoto4 * intervcons + esgoto5 * intervconsa30 + (consumo - 30) * esgoto6;
-                    resultado2.setText(String.valueOf("O preço do consumo é: R$" + preco));
-                    Intent intent = new Intent(Telahome.this, Resultadocalc.class);
-                    intent.putExtra("resultadofinal", preco);
-                    intent.putExtra("consumido", consumo);
-
-                    startActivity(intent);
+                    resultado2.setText("R$ " + String.format("Total desta leitura %.2f", valortotal));
+                } else {
+                    consumosimulado.setText(" ");
+                    resultado2.setText("Verifique os campos digitados");
                 }
             }
         });
