@@ -68,8 +68,10 @@ public class Telahome extends AppCompatActivity {
                 double esgoto5 = 74.89 / 10; // 21 a 30m³
                 double esgoto6 = 12.66 ;  // acima de 30m³
 
+
+                // Verifica se n1 ou n2 estão vazias; se estiverem, sai da função
                 if (n1.isEmpty() || n2.isEmpty()) {
-                    return;
+                    return;  // Sai da função se n1 ou n2 estiverem vazias
                 }
 
                 double num1 = Double.parseDouble(n1);
