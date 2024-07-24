@@ -31,11 +31,10 @@
 
             <ListView
                 android:id="@+id/consumo_list"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="209dp"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/transparenciabranca"/>
-
 
             <TextView
                 android:id="@+id/equipamentos_title"
@@ -47,14 +46,43 @@
 
             <ListView
                 android:id="@+id/equipamentos_list"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/transparenciabranca"/>
 
+            <TextView
+                android:id="@+id/data_range_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Consultar Por Data"
+                android:textSize="18sp"
+                android:layout_marginBottom="8dp"/>
+
+            <EditText
+                android:id="@+id/data_inicio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Data Início (dd/MM/yyyy)"
+                android:inputType="date"/>
+
+            <EditText
+                android:id="@+id/data_fim"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Data Fim (dd/MM/yyyy)"
+                android:inputType="date"/>
+
+            <Button
+                android:id="@+id/consultar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Consultar"
+                android:layout_marginTop="16dp"/>
+
             <ListView
                 android:id="@+id/equipamentos_list2"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="189dp"
                 android:background="@drawable/transparenciabranca"/>
 

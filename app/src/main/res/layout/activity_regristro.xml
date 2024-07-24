@@ -16,7 +16,7 @@
         android:padding="16dp"
         android:textColor="#FFFFFF"
         android:background="@drawable/texto_fundo_login"/>
-    te
+
     <EditText
         android:id="@+id/ednomeuser"
         android:layout_width="match_parent"

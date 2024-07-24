@@ -104,17 +104,18 @@
             android:textColor="#FFFFFF" />
 
         <!-- Register Button -->
+
+        <!-- Progress Bar -->
         <Button
             android:id="@+id/Register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/buttonLogin"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="15dp"
             android:background="@drawable/texto_fundo_login"
             android:text="Cadastre-se"
             android:textColor="#FFFFFF" />
 
-        <!-- Progress Bar -->
         <ProgressBar
             android:id="@+id/progressobar"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"

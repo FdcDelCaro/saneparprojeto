@@ -16,6 +16,8 @@ public class Telahome extends AppCompatActivity {
     TextView resultado2;
     Button Calcular;
     Button Listaconsumo;
+    EditText data_leitura;
+    EditText data_leitura2;
     AcessoBD acessoBD;
 
     @Override
@@ -29,6 +31,8 @@ public class Telahome extends AppCompatActivity {
         resultado2 = findViewById(R.id.resultadofinal);
         Calcular = findViewById(R.id.Calcular);
         Listaconsumo = findViewById(R.id.listaconsumo);
+        data_leitura = findViewById(R.id.dataLeitura);
+        data_leitura2 = findViewById(R.id.dataLeitura);
 
         acessoBD = new AcessoBD(this);
 
@@ -48,6 +52,9 @@ public class Telahome extends AppCompatActivity {
             public void onClick(View v) {
                 String n1 = leitura_atual.getText().toString();
                 String n2 = leitura_anterior.getText().toString();
+                String data = data_leitura.getText().toString();
+                String data2 = data_leitura2.getText().toString();
+
                 double intervcons = 5; // intervalo de taxas de consumo em metros cúbicos
                 double intervconsa30 = 10; // intervalo de taxas de consumo em metros cúbicos acima de 30
 
@@ -68,8 +75,9 @@ public class Telahome extends AppCompatActivity {
                 double esgoto5 = 74.89 / 10; // 21 a 30m³
                 double esgoto6 = 12.66 ;  // acima de 30m³
 
-                if (n1.isEmpty() || n2.isEmpty()) {
-                    return;
+                // Verifica se n1 ou n2 estão vazias; se estiverem, sai da função
+                if (n1.isEmpty() || n2.isEmpty() || data.isEmpty()) {
+                    return;  // Sai da função se n1 ou n2 ou data estiverem vazias
                 }
 
                 double num1 = Double.parseDouble(n1);
@@ -103,12 +111,11 @@ public class Telahome extends AppCompatActivity {
                     }
 
                     valortotal = soma + soma_esgoto;
-                    acessoBD.salvarConsumo(consumo, valortotal);
-                    acessoBD.salvarLeituraAtual(n1);
+                    acessoBD.salvarConsumo(consumo, valortotal, data2);
+                    acessoBD.salvarLeituraAtual(n1, data);  // Salva a leitura atual com a data
                     double caixas = consumo * 1000 / 500;
 
-                    consumosimulado.setText(String.format("Você consumiu %.2f m³ \n\n Equivalente a %.1f Caixas d'agua",consumo,caixas));
-
+                    consumosimulado.setText(String.format("Você consumiu %.2f m³ \n\n Equivalente a %.1f Caixas d'agua", consumo, caixas));
                     resultado2.setText("R$ " + String.format("Total desta leitura %.2f", valortotal));
                 } else {
                     consumosimulado.setText(" ");
