@@ -1,0 +1,28 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Texto explicativo -->
+
+    <!-- ImageView para exibir a imagem -->
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="421dp"
+        android:padding="16dp"
+        android:text="\nPor exemplo: Se na leitura anterior o hidrômetro marcou 3520 m³ e na leitura atual marcou 3534 m³, é só subtrair a diferença. No exemplo, o gasto foi de 14 metros cúbicos.\n\nÉ muito importante entender que:\n\n1 m³ = 1.000 litros\n\nPara acompanhar o consumo em sua residência ou empresa anote os números PRETOS do hidrômetro, eles mostram quantos metros cúbicos de água foram consumidos. Aí é só fazer um acompanhamento periódico e tirar a diferença.\n\nO acompanhamento frequente da movimentação do Hidrômetro é o principal meio de antecipar eventuais picos de consumo ou identificar problemas de vazamentos."
+        android:textSize="16sp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="311dp"
+        android:layout_below="@id/textView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-1dp"
+        android:layout_marginEnd="0dp"
+        android:src="@drawable/hidro" />
+
+    <!-- Repeat for other buttons -->
+</RelativeLayout>

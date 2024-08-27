@@ -31,6 +31,7 @@
         <item name="android:layout_width">96dp</item>
         <item name="android:layout_height">49dp</item>
     </style>
+
     <style name="transparenciabranca" parent="Widget.AppCompat.Button">
         <item name="android:background">@drawable/transparenciabranca</item>
         <item name="android:textColor">@color/white</item> <!-- Cor preta -->

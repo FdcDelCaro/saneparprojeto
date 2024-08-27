@@ -9,75 +9,56 @@
 
     <RelativeLayout
         android:id="@+id/loginContainer"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="16dp"
+        android:layout_centerInParent="true"
         android:background="@drawable/login_fundo"
         android:padding="24dp">
 
         <!-- TextView para Leitura Atual -->
-
-        <!-- EditText para Leitura Atual -->
-
         <TextView
             android:id="@+id/leitura11"
             style="@style/BlueButton"
-            android:layout_width="233dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="94dp"
-            android:layout_marginTop="119dp"
-            android:layout_marginEnd="91dp"
+            android:layout_centerHorizontal="true"
             android:drawableLeft="@drawable/baseline_water_drop_24"
             android:text="Leitura atual"
             android:textSize="20sp" />
 
+        <!-- EditText para Leitura Atual -->
         <EditText
             android:id="@+id/leitura1"
             style="@style/transparencia"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/leitura11"
-            android:layout_centerHorizontal="true"
             android:layout_marginTop="8dp"
-            android:ems="10"
             android:inputType="numberDecimal"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
 
         <!-- TextView para Data da Leitura -->
-
-        <!-- EditText para Data da Leitura -->
-
         <TextView
             android:id="@+id/dataLeituraLabel"
             style="@style/BlueButton"
-            android:layout_width="246dp"
-            android:layout_height="41dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="63dp"
-            android:layout_marginTop="244dp"
-            android:layout_marginEnd="67dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/leitura1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
             android:text="Data da Leitura"
             android:textSize="20sp" />
 
+        <!-- EditText para Data da Leitura -->
         <EditText
             android:id="@+id/dataLeitura"
             style="@style/transparencia"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/dataLeituraLabel"
-            android:layout_centerHorizontal="true"
+            android:layout_below="@id/dataLeituraLabel"
             android:layout_marginTop="8dp"
-            android:ems="10"
             android:inputType="date"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
@@ -99,69 +80,60 @@
         <EditText
             android:id="@+id/leitura2"
             style="@style/transparencia"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/leitura21"
-            android:layout_centerHorizontal="true"
             android:layout_marginTop="8dp"
-            android:ems="10"
             android:inputType="numberDecimal"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
 
         <!-- TextView para Consumo -->
-
-        <!-- TextView para Resultado Final -->
-
         <TextView
             android:id="@+id/resultconsum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/leitura2"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="18dp"
             android:text="CONSUMIDO:"
             android:textColor="#FFFFFF"
             android:textSize="30sp" />
 
+        <!-- TextView para Resultado Final -->
         <TextView
             android:id="@+id/resultadofinal"
-            android:layout_width="233dp"
-            android:layout_height="46dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@id/resultconsum"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
             android:text="Resultado:"
             android:textColor="#FFFFFF"
             android:textSize="30sp" />
 
+        <!-- Button para Calcular -->
         <Button
             android:id="@+id/Calcular"
-            android:layout_width="149dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/resultadofinal"
+            android:layout_marginTop="32dp"
             android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="22dp"
-            android:layout_marginTop="625dp"
-            android:layout_marginEnd="189dp"
-            android:layout_marginBottom="118dp"
+            android:layout_marginEnd="8dp"
             android:background="@drawable/fundo_botao_login"
             android:text="Calcular" />
 
+        <!-- Button para Lista de Consumo -->
         <Button
             android:id="@+id/listaconsumo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="215dp"
-            android:layout_marginTop="625dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginBottom="118dp"
+            android:layout_below="@id/resultadofinal"
+            android:layout_marginTop="32dp"
+            android:layout_toEndOf="@id/Calcular"
             android:background="@drawable/fundo_botao_login"
             android:text="Consumo" />
-
-        <!-- Button para Calcular -->
-
-        <!-- Button para Lista de Consumo -->
 
     </RelativeLayout>
 

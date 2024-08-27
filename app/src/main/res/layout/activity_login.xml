@@ -116,6 +116,26 @@
             android:text="Cadastre-se"
             android:textColor="#FFFFFF" />
 
+        <Button
+            android:id="@+id/fatura"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/buttonLogin"
+            android:layout_marginTop="79dp"
+            android:background="@drawable/texto_fundo_login"
+            android:text="Entenda sua fatura"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/Hidro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/buttonLogin"
+            android:layout_marginTop="140dp"
+            android:background="@drawable/texto_fundo_login"
+            android:text="Sabe ler seu hidrometro?"
+            android:textColor="#FFFFFF" />
+
         <ProgressBar
             android:id="@+id/progressobar"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"

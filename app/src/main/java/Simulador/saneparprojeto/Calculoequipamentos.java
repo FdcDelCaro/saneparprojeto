@@ -1,9 +1,12 @@
 package Simulador.saneparprojeto;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,6 +40,7 @@ public class Calculoequipamentos extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 addEquipment();
+                calculateConsumption();
             }
         });
 
@@ -86,6 +90,20 @@ public class Calculoequipamentos extends AppCompatActivity {
             String consumo_eq = "Consumo: " + df.format(consumo_por_litros) + " litros\nCusto: R$ " + df.format(cost);
             resultText.setText(consumo_eq);
 
+            // Exibir alerta se o consumo ultrapassar 45 litros
+            if (consumo_por_litros > 45) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(Calculoequipamentos.this);
+                builder.setTitle("Alerta de Consumo")
+                        .setMessage("O consumo de " + df.format(consumo_por_litros) + " litros ultrapassou o limite de 45 litros.")
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                // Ação ao pressionar OK (pode ser deixado em branco)
+                            }
+                        })
+                        .show();
+            }
+
             long id = acessoBD.adicionarEquipamento(nomeEquipamento, consumo_por_litros, cost);
 
             if (id == -1) {
@@ -130,6 +148,28 @@ public class Calculoequipamentos extends AppCompatActivity {
             String consumo_eq = "Consumo: " + df.format(consumptionInLiters) + " litros\nCusto: R$ " + df.format(cost);
             resultText.setText(consumo_eq);
 
+            // Exibir alerta se o consumo ultrapassar 45 litros
+            AlertDialog.Builder builder = new AlertDialog.Builder(Calculoequipamentos.this);
+
+            // Cria uma TextView para a mensagem
+            TextView messageView = new TextView(Calculoequipamentos.this);
+            messageView.setText("O consumo de " + df.format(consumptionInLiters) + " litros ultrapassou os 45 litros. Se ligue nessa dica: \n" +
+                    "Banho de ducha por 15 minutos, com o registro meio aberto, consome 135 litros de água. Se você fechar o registro ao se ensaboar, e reduzir o tempo do banho para 5 minutos, seu consumo cai para 45 litros. A redução é de 90 litros de água, o equivalente a 360 copos de água com 250 ml.");
+            messageView.setPadding(20, 20, 20, 20);
+
+            // Adiciona a mensagem em um ScrollView
+            ScrollView scrollView = new ScrollView(Calculoequipamentos.this);
+            scrollView.addView(messageView);
+
+            builder.setTitle("Alerta de Consumo")
+                    .setView(scrollView)  // Define o ScrollView como a visualização do diálogo
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            // Ação ao pressionar OK (pode ser deixado em branco)
+                        }
+                    })
+                    .show();
             // Atualizar o consumo do equipamento
             String nomeEquipamento = equipmentName.getText().toString();
             if (!nomeEquipamento.isEmpty()) {
